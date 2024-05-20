@@ -84,6 +84,7 @@ function displaycart() {
 // Payment functionality
 const checkoutBtn = document.querySelector(".checkout-btn");
 const close = document.querySelector(".close");
+const payButton = document.querySelector(".payButton");
 
 function displayPayment() {
     const payment = document.querySelector(".payment");
@@ -97,4 +98,14 @@ close.addEventListener("click", () => {
     const payment = document.querySelector(".payment");
     payment.style.display = "none";
     checkoutBtn.addEventListener("click", displayPayment);
+});
+
+// Show payInput values on payButton click
+payButton.addEventListener("click", () => {
+    const payInputs = document.querySelectorAll(".payInput");
+    let inputValues = [];
+    payInputs.forEach(input => {
+        inputValues.push(`${input.placeholder}: ${input.value}`);
+    });
+    alert(inputValues.join('\n'));
 });
